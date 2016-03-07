@@ -1,0 +1,35 @@
+language: android
+android:
+  components:
+  - tools
+  - build-tools-23.0.2
+  - android-23
+  - sys-img-armeabi-v7a-android-21
+  - extra-google-m2repository
+  - extra-android-m2repository
+
+env:
+  global:
+  - ADB_INSTALL_TIMEOUT=4
+
+before_script:
+- cd iterators && mvn install && cd ..
+- echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
+
+script:
+- "./gradlew connectedAndroidTest"
+
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+
+notifications:
+  slack:
+    secure: MUdG9RK44xhH7/xMqF0AzBtwo/t+5T+6JQwiUu3TilrORDb4kZ266fyxA/l/dimxZZiN4aLe+pQdIxW7dfY2RUvwwAnD2BEeqAyLvVB9L6dM3xVcAR6UeE16/c/vYM4AiLXcqSTB0UW83WcEYOgSMe48xfUmSEkyWThMXJecFNj3Su7MyGlZCD3QA620romJprowR1zGX+Owx2Y938EWt//p/mIp4HUZGJHC6UcIXMe6sXKLsr9u+/0qE4Lb0Bsqc1AB4y2dnDy02hGR/lR6W236yp6gG5Xi30ljApCAvjTfQ5THCIFQpG/gPdBpLMIggfsqrunkeBRqIHigmY9wMf9x8SYCgso4atXozRFTZUIbQ0cXBSGOTJ0lIyygEW26dB8qXV8S/5ZFZJJ3xv76CQJdXN2UZUUUISDhDw0KkyRbRK1IZTJ1VByBjUqOJDOENBBYTwdwQLOqf4IEHbXSFzODhfJiBZyW25wFzZ+kH/Tw7XJPeVniiX5/Y4hJY2P9mgwgvHxjpjpm3Q2vj+Op29TnZb1qm2onyMqg/OEzGin8uVpjNT0LqePo2LEukgyY+QX1ZHvzOZl7t3SgwGFkD6+Bo8e/sbQ1nlqynIVptB84d8c+Hl20CPbA3vxScnsweUOaWsgwwFjrTJCYWs5BQxvYb5cqY4MtdSu7ywnMdqA=

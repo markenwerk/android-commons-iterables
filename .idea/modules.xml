@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Iterables.iml" filepath="$PROJECT_DIR$/Iterables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-commons-iterables/android-commons-iterables.iml" filepath="$PROJECT_DIR$/android-commons-iterables/android-commons-iterables.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,145 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'org.ajoberstar.github-pages'
+
+group "net.markenwerk"
+version "2.2.0"
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 23
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
+        }
+    }
+    sourceSets {
+        defaultConfig {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        }
+    }
+
+}
+
+dependencies {
+    compile 'net.markenwerk:android-commons-iterators:2.2.0'
+    compile 'net.markenwerk:commons-iterables:2.2.0'
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:0.4.1'
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+android.libraryVariants.all { variant ->
+    task("${variant.name}Javadoc", type: Javadoc) {
+        source = variant.javaCompile.source
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        options.linksOffline("http://d.android.com/reference", "${android.sdkDirectory}/docs/reference")
+        options.links("https://markenwerk.github.io/android-commons-iterators")
+        options.links("https://markenwerk.github.io/java-commons-datastructures")
+        options.links("https://markenwerk.github.io/java-commons-interfaces")
+        options.links("https://markenwerk.github.io/java-commons-iterators")
+        options.noTimestamp = true
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+    }
+    task("${variant.name}JavadocJar", type: Jar, dependsOn: "${variant.name}Javadoc") {
+        classifier = 'javadoc'
+        from tasks["${variant.name}Javadoc"].destinationDir
+    }
+    project.artifacts.add("archives", tasks["${variant.name}JavadocJar"]);
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+afterEvaluate {
+    githubPages {
+        repoUri = "git@github.com:markenwerk/android-commons-iterables"
+        pages {
+            from tasks.getByName("releaseJavadoc").outputs.files
+        }
+        publishGhPages.dependsOn(tasks.getByName("releaseJavadoc"))
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name "net.markenwerk:commons-iterables"
+                description "Some common iterators for Android"
+                url "https://github.com/markenwerk/android-commons-iterables"
+                inceptionYear '2016'
+
+                licenses {
+                    license {
+                        name "MIT License"
+                        url 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                organization {
+                    name "Markenwerk – Gesellschaft für markenbildende Maßnahmen mbH"
+                    url "http://markenwerk.net/"
+                }
+
+                developers {
+                    developer {
+                        name "Torsten Krause"
+                        email "tk@markenwerk.net"
+                        organization "Markenwerk – Gesellschaft für markenbildende Maßnahmen mbH"
+                        organizationUrl "http://markenwerk.net/"
+                    }
+                }
+
+                scm {
+                    connection 'scm:git:github:markenwerk/android-commons-iterables.git'
+                    developerConnection 'scm:git:github:markenwerk/android-commons-iterables.git'
+                    url 'https://github.com/markenwerk/android-commons-iterables'
+                }
+
+                ciManagement {
+                    system "Travis CI"
+                    url 'https://travis-ci.org//markenwerk/android-commons-iterables/issues'
+                }
+
+                issueManagement {
+                    system "GitHub Issues"
+                    url 'https://github.com/markenwerk/android-commons-iterables/issues'
+                }
+            }
+        }
+    }
+}
+

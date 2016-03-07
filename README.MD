@@ -26,7 +26,7 @@ Consult the [usage description](#usage) and [Javadoc](https://markenwerk.github.
 
 ### Iterating over sparse arrays
 
-This library provides the following [`Iterables`][Iterables] that take existing sparse arrays and generate
+This library provides the following [`Iterables`][Iterable] that take existing sparse arrays and generate
 [`Iterables`][Iterable] and yield all elements of the given array wrapped in an [`Entry`][Entry]:
 
 - [`LongSparseArrayIterable`][LongSparseArrayIterable]

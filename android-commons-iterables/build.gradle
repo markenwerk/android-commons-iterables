@@ -53,6 +53,7 @@ android.libraryVariants.all { variant ->
         options.links("https://markenwerk.github.io/android-commons-iterators")
         options.links("https://markenwerk.github.io/java-commons-datastructures")
         options.links("https://markenwerk.github.io/java-commons-interfaces")
+        options.links("https://markenwerk.github.io/java-commons-iterables")
         options.links("https://markenwerk.github.io/java-commons-iterators")
         options.noTimestamp = true
         exclude '**/BuildConfig.java'

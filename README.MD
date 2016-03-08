@@ -1,4 +1,4 @@
-# Some common iterators for Java
+# Some common iterators for Android
 
 [![Build Status](https://travis-ci.org/markenwerk/android-commons-iterables.svg?branch=master)](https://travis-ci.org/markenwerk/android-commons-iterables)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/android-commons-iterables/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/android-commons-iterables)

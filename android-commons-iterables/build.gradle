@@ -33,8 +33,8 @@ android {
 }
 
 dependencies {
-    compile 'net.markenwerk:android-commons-iterators:2.2.0'
-    compile 'net.markenwerk:commons-iterables:2.2.0'
+    compile 'net.markenwerk:android-commons-iterators:2.2.1'
+    compile 'net.markenwerk:commons-iterables:2.2.1'
     androidTestCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test:runner:0.4.1'
 }

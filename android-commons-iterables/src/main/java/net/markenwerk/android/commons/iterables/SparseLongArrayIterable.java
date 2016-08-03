@@ -34,10 +34,6 @@ import java.util.Iterator;
 /**
  * An {@link SparseLongArrayIterable} is a {@link ProtectedIterable} that generates
  * {@link Iterator Iterators} that iterate over a given {@link SparseLongArray}.
- * <p/>
- * Calling {@link SparseLongArrayIterable#iterator()} creates an instance of
- * {@link SparseLongArrayIterator}.
- * <p/>
  *
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 2.2.0
@@ -48,14 +44,14 @@ public final class SparseLongArrayIterable implements ProtectedIterable<Entry<In
 	private final SparseLongArray array;
 
 	/**
-	 * Creates a new {@link SparseLongArrayIterable} for the given {@link SparseLongArray}.
+	 * Creates a new {@link SparseLongArrayIterable}.
 	 *
 	 * @param array The {@link SparseLongArray} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link SparseLongArray} is {@literal null}.
 	 */
 	public SparseLongArrayIterable(SparseLongArray array) throws IllegalArgumentException {
 		if (null == array) {
-			throw new IllegalArgumentException("array is null");
+			throw new IllegalArgumentException("The given array is null");
 		}
 		this.array = array;
 	}

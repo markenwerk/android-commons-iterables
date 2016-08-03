@@ -32,10 +32,6 @@ import java.util.Iterator;
 /**
  * An {@link SparseArrayIterable} is a {@link ProtectedIterable} that generates
  * {@link Iterator Iterators} that iterate over a given {@link android.util.SparseArray}.
- * <p/>
- * Calling {@link SparseArrayIterable#iterator()} creates an instance of
- * {@link SparseArrayIterator}.
- * <p/>
  *
  * @param <Payload> The payload type.
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -46,14 +42,14 @@ public final class SparseArrayIterable<Payload> implements ProtectedIterable<Ent
 	private final SparseArray<? extends Payload> array;
 
 	/**
-	 * Creates a new {@link SparseArrayIterable} for the given {@link android.util.SparseArray}.
+	 * Creates a new {@link SparseArrayIterable}.
 	 *
 	 * @param array The {@link android.util.SparseArray} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link android.util.SparseArray} is {@literal null}.
 	 */
 	public SparseArrayIterable(SparseArray<? extends Payload> array) throws IllegalArgumentException {
 		if (null == array) {
-			throw new IllegalArgumentException("array is null");
+			throw new IllegalArgumentException("The given array is null");
 		}
 		this.array = array;
 	}

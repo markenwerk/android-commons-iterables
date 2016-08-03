@@ -32,10 +32,6 @@ import java.util.Iterator;
 /**
  * An {@link SparseIntegerArrayIterable} is a {@link ProtectedIterable} that generates
  * {@link Iterator Iterators} that iterate over a given {@link SparseIntArray}.
- * <p/>
- * Calling {@link SparseIntegerArrayIterable#iterator()} creates an instance of
- * {@link SparseIntegerArrayIterator}.
- * <p/>
  *
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 2.2.0
@@ -45,14 +41,14 @@ public final class SparseIntegerArrayIterable implements ProtectedIterable<Entry
 	private final SparseIntArray array;
 
 	/**
-	 * Creates a new {@link SparseIntegerArrayIterable} for the given {@link SparseIntArray}.
+	 * Creates a new {@link SparseIntegerArrayIterable}.
 	 *
 	 * @param array The {@link SparseIntArray} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link SparseIntArray} is {@literal null}.
 	 */
 	public SparseIntegerArrayIterable(SparseIntArray array) throws IllegalArgumentException {
 		if (null == array) {
-			throw new IllegalArgumentException("array is null");
+			throw new IllegalArgumentException("The given array is null");
 		}
 		this.array = array;
 	}

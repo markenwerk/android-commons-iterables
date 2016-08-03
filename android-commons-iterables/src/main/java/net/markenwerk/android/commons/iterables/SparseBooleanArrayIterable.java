@@ -32,10 +32,6 @@ import java.util.Iterator;
 /**
  * An {@link SparseBooleanArrayIterable} is a {@link ProtectedIterable} that generates
  * {@link Iterator Iterators} that iterate over a given {@link SparseBooleanArray}.
- * <p/>
- * Calling {@link SparseBooleanArrayIterable#iterator()} creates an instance of
- * {@link SparseBooleanArrayIterator}.
- * <p/>
  *
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 2.2.0
@@ -45,14 +41,14 @@ public final class SparseBooleanArrayIterable implements ProtectedIterable<Entry
 	private final SparseBooleanArray array;
 
 	/**
-	 * Creates a new {@link SparseBooleanArrayIterable} for the given {@link SparseBooleanArray}.
+	 * Creates a new {@link SparseBooleanArrayIterable}.
 	 *
 	 * @param array The {@link SparseBooleanArray} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link SparseBooleanArray} is {@literal null}.
 	 */
 	public SparseBooleanArrayIterable(SparseBooleanArray array) throws IllegalArgumentException {
 		if (null == array) {
-			throw new IllegalArgumentException("array is null");
+			throw new IllegalArgumentException("The given array is null");
 		}
 		this.array = array;
 	}

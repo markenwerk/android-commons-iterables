@@ -34,10 +34,6 @@ import java.util.Iterator;
 /**
  * An {@link LongSparseArrayIterable} is a {@link ProtectedIterable} that generates
  * {@link Iterator Iterators} that iterate over a given {@link LongSparseArray}.
- * <p/>
- * Calling {@link LongSparseArrayIterable#iterator()} creates an instance of
- * {@link LongSparseArrayIterator}.
- * <p/>
  *
  * @param <Payload> The payload type.
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -49,14 +45,14 @@ public final class LongSparseArrayIterable<Payload> implements ProtectedIterable
 	private final LongSparseArray<? extends Payload> array;
 
 	/**
-	 * Creates a new {@link LongSparseArrayIterable} for the given {@link LongSparseArray}.
+	 * Creates a new {@link LongSparseArrayIterable}.
 	 *
 	 * @param array The {@link LongSparseArray} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link LongSparseArray} is {@literal null}.
 	 */
 	public LongSparseArrayIterable(LongSparseArray<? extends Payload> array) throws IllegalArgumentException {
 		if (null == array) {
-			throw new IllegalArgumentException("array is null");
+			throw new IllegalArgumentException("The given array is null");
 		}
 		this.array = array;
 	}

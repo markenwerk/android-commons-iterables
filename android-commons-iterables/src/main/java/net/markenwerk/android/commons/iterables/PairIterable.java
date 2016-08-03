@@ -29,10 +29,6 @@ import net.markenwerk.commons.iterables.ProtectedIterable;
 /**
  * An {@link PairIterable} is a {@link ProtectedIterable} that iterates over a given
  * {@link Pair}, where both components have a common super type.
- * <p/>
- * Calling {@link PairIterable#iterator()} creates an instance of
- * {@link PairIterator}.
- * <p/>
  *
  * @param <Payload> The payload type.
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -43,14 +39,14 @@ public final class PairIterable<Payload> implements ProtectedIterable<Payload> {
 	private final Pair<? extends Payload, ? extends Payload> pair;
 
 	/**
-	 * Creates a new {@link PairIterable} for the given {@link Pair}.
+	 * Creates a new {@link PairIterable}.
 	 *
 	 * @param pair The {@link Pair} to iterate over.
 	 * @throws IllegalArgumentException If the given {@link Pair} is {@literal null}.
 	 */
 	public PairIterable(Pair<? extends Payload, ? extends Payload> pair) throws IllegalArgumentException {
 		if (null == pair) {
-			throw new IllegalArgumentException("pair is null");
+			throw new IllegalArgumentException("The given pair is null");
 		}
 		this.pair = pair;
 	}

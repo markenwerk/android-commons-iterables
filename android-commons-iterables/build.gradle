@@ -8,12 +8,12 @@ group "net.markenwerk"
 version "2.2.1"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 23
+        targetSdkVersion 24
     }
     buildTypes {
         release {
@@ -98,7 +98,7 @@ uploadArchives {
             }
 
             pom.project {
-                name "net.markenwerk:commons-iterables"
+                name "net.markenwerk:android-commons-iterables"
                 description "Some common iterators for Android"
                 url "https://github.com/markenwerk/android-commons-iterables"
                 inceptionYear '2016'

@@ -24,26 +24,15 @@ package net.markenwerk.android.commons.iterables;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.util.LongSparseArray;
-import android.util.SparseArray;
 
 import net.markenwerk.commons.datastructures.Entry;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Iterator;
-
-/**
- * JUnit test for {@link LongSparseArrayIterable}.
- *
- * @author Torsten Krause (tk at markenwerk dot net)
- */
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class LongSparseArrayIterableTests {
 
-	/**
-	 * Create one {@link Iterator}.
-	 */
 	@Test
 	public void iterator() {
 
@@ -53,9 +42,6 @@ public class LongSparseArrayIterableTests {
 
 	}
 
-	/**
-	 * create with a {@code null} array.
-	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void create_nullArray() {
 
@@ -63,9 +49,6 @@ public class LongSparseArrayIterableTests {
 
 	}
 
-	/**
-	 * Create multiple {@link Iterator Iterators}.
-	 */
 	@Test
 	public void iterator_twice() {
 

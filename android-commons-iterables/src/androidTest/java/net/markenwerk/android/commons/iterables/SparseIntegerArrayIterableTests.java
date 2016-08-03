@@ -30,16 +30,8 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-/**
- * JUnit test for {@link SparseIntegerArrayIterable}.
- *
- * @author Torsten Krause (tk at markenwerk dot net)
- */
 public class SparseIntegerArrayIterableTests {
 
-	/**
-	 * create with a {@code null} array.
-	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void create_nullArray() {
 
@@ -47,9 +39,6 @@ public class SparseIntegerArrayIterableTests {
 
 	}
 
-	/**
-	 * Create one {@link Iterator}.
-	 */
 	@Test
 	public void iterator() {
 
@@ -59,9 +48,6 @@ public class SparseIntegerArrayIterableTests {
 
 	}
 
-	/**
-	 * Create multiple {@link Iterator Iterators}.
-	 */
 	@Test
 	public void iterator_twice() {
 

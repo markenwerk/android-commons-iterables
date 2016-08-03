@@ -32,17 +32,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-/**
- * JUnit test for {@link SparseLongArrayIterable}.
- *
- * @author Torsten Krause (tk at markenwerk dot net)
- */
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class SparseLongArrayIterableTests {
 
-	/**
-	 * create with a {@code null} array.
-	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void create_nullArray() {
 
@@ -50,9 +42,6 @@ public class SparseLongArrayIterableTests {
 
 	}
 
-	/**
-	 * Create one {@link Iterator}.
-	 */
 	@Test
 	public void iterator() {
 
@@ -62,9 +51,6 @@ public class SparseLongArrayIterableTests {
 
 	}
 
-	/**
-	 * Create multiple {@link Iterator Iterators}.
-	 */
 	@Test
 	public void iterator_twice() {
 

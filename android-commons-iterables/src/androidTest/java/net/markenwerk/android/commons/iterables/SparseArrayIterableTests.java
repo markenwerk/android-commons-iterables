@@ -37,9 +37,6 @@ import java.util.Iterator;
  */
 public class SparseArrayIterableTests {
 
-	/**
-	 * create with a {@code null} array.
-	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void create_nullArray() {
 
@@ -47,9 +44,6 @@ public class SparseArrayIterableTests {
 
 	}
 
-	/**
-	 * Create one {@link Iterator}.
-	 */
 	@Test
 	public void iterator() {
 
@@ -59,9 +53,6 @@ public class SparseArrayIterableTests {
 
 	}
 
-	/**
-	 * Create multiple {@link Iterator Iterators}.
-	 */
 	@Test
 	public void iterator_twice() {
 

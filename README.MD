@@ -17,7 +17,7 @@ This library is an extensions of the [corresponding library for Java](https://gi
 This library is hosted in the [Maven Central Repository](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/android-commons-iterables). You can use it with the following coordinates:
 
 ```gradle
-compile 'net.markenwerk:android-commons-iterables:2.2.1'
+compile 'net.markenwerk:android-commons-iterables:3.1.0'
 ```
 
 Consult the [usage description](#usage) and [Javadoc](https://markenwerk.github.io/android-commons-iterables/index.html) for further information.
